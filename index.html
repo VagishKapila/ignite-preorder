@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ignite Pre-Order</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-4zzF+7UKGwXtRRlq9F+2hLM6piPPOuZ1Q3fZ+OY5GhSLxNbp4HeJBDlMrzSGHoD/oL2bX2kpMYIuhK9+5my1Qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>IGNITE Pre-Order</title>
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #000;
       color: #fff;
-      font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    .hero-section {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
+    header {
+      padding: 2rem 1rem 1rem;
+    }
+
+    .logo {
+      width: 100px;
       margin: 0 auto;
     }
 
-    .hero-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 2px solid #ff6600;
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+      color: #f90;
     }
 
-    .button-section {
-      margin: 20px 0;
+    h2 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 1rem;
     }
 
-    .cta-button {
-      background-color: #ff6600;
-      color: white;
-      padding: 12px 24px;
-      font-size: 18px;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      margin: 10px;
+    .timer {
+      font-size: 1.5rem;
+      border: 2px solid #f90;
+      padding: 0.5rem 1.2rem;
+      display: inline-block;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
     }
 
-    .countdown {
-      font-size: 22px;
-      color: #ffcc00;
-      margin: 10px 0;
+    .cta-buttons {
+      margin: 1rem 0;
+    }
+
+    .cta-buttons a {
+      text-decoration: none;
+      padding: 0.8rem 1.2rem;
+      margin: 0 0.5rem;
+      background-color: #f90;
+      color: #000;
+      border-radius: 6px;
+      font-weight: bold;
     }
 
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 16px;
-      padding: 20px;
+      gap: 1rem;
+      padding: 2rem 1rem;
     }
 
     .gallery a img {
-      width: 200px;
-      height: auto;
+      width: 280px;
       border-radius: 10px;
-      border: 2px solid #ff6600;
       transition: transform 0.2s;
     }
 
@@ -70,26 +76,20 @@
       transform: scale(1.05);
     }
 
-    .ingredient-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      opacity: 0.1;
-      z-index: -1;
-    }
-
-    .testimonial-section {
-      padding: 30px 20px;
+    .testimonials {
       background-color: #111;
-      border-top: 2px solid #ff6600;
+      padding: 2rem 1rem;
     }
 
     .testimonial {
+      margin-bottom: 1.5rem;
       font-style: italic;
-      margin: 10px auto;
-      max-width: 700px;
+    }
+
+    footer {
+      padding: 1rem;
+      background-color: #111;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 600px) {
@@ -101,33 +101,41 @@
 </head>
 
 <body>
-  <div class="hero-section">
-    <img class="hero-img" src="LaunchPage.png" alt="Ignite Launch Page">
-    <div class="countdown" id="countdown"></div>
-    <div class="button-section">
-      <a href="https://buy.stripe.com/test_preorder" class="cta-button">Pre-Order Now</a>
-      <a href="https://www.instagram.com/br2zcafe" class="cta-button">Get Product Updates</a>
+  <header>
+    <img src="IGNITE_Logo.png" class="logo" alt="Ignite Logo" />
+    <h1>IGNITE IS COMING.</h1>
+    <h2>Be First to Fuel Your Flow.</h2>
+    <div class="timer" id="countdown"></div>
+    <div class="cta-buttons">
+      <a href="https://buy.stripe.com/test_preorder_link" target="_blank">Pre-Order Now</a>
+      <a href="https://www.instagram.com/br2zcafe" target="_blank">Get Product Updates</a>
     </div>
-    <img src="Ingredients7.jpeg" alt="Ingredients Background" class="ingredient-bg">
-  </div>
+  </header>
 
-  <div class="gallery">
-    <a href="igniteZenbottle_tag.png" data-lightbox="ignite"><img src="igniteZenbottle_tag.png" alt="Zen Bottle Tag"></a>
-    <a href="ignitesocialbottle_tag.png" data-lightbox="ignite"><img src="ignitesocialbottle_tag.png" alt="Social Bottle Tag"></a>
-    <a href="ignitezen FuelBottle.png" data-lightbox="ignite"><img src="ignitezen FuelBottle.png" alt="Zen Bottle"></a>
-    <a href="igniteSocialBottle.png" data-lightbox="ignite"><img src="igniteSocialBottle.png" alt="Social Bottle"></a>
-  </div>
+  <section class="gallery">
+    <a href="LaunchPage.png" data-lightbox="ignite"><img src="LaunchPage.png" alt="Launch Preview" /></a>
+    <a href="ignitezenbottle_tag.png" data-lightbox="ignite"><img src="ignitezenbottle_tag.png" alt="Zen Bottle" /></a>
+    <a href="ignitesocialbottle_tag.png" data-lightbox="ignite"><img src="ignitesocialbottle_tag.png" alt="Social Bottle" /></a>
+    <a href="Ingredients7.jpeg" data-lightbox="ignite"><img src="Ingredients7.jpeg" alt="Ingredients" /></a>
+  </section>
 
-  <div class="testimonial-section">
+  <section class="testimonials">
     <h2>What People Are Saying</h2>
-    <p class="testimonial">“This drink gave me exactly what I needed—calm energy and mental focus.” – A. Patel</p>
-    <p class="testimonial">“Perfect for winding down or powering through a creative session.” – J. Kaur</p>
-  </div>
+    <div class="testimonial">"This is exactly what I needed to feel energized during my workday!" – Jess</div>
+    <div class="testimonial">"Zen Fuel actually helped me focus better than any coffee ever has." – Arun</div>
+    <!-- Add more testimonials here -->
+  </section>
 
+  <footer>
+    &copy; 2025 IGNITE – Powered by bR2z. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
   <script>
-    const releaseDate = new Date("October 30, 2025 00:00:00").getTime();
+    const releaseDate = new Date("2025-10-30T00:00:00Z").getTime();
+    const countdown = document.getElementById("countdown");
 
-    function updateCountdown() {
+    function updateTimer() {
       const now = new Date().getTime();
       const distance = releaseDate - now;
 
@@ -136,17 +144,10 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "Available Now!";
-      }
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    setInterval(updateCountdown, 1000);
+    setInterval(updateTimer, 1000);
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-q22zYwtqVV3sDrzKMEZgqVxAe1c4NwSpAkBguheARh/q/mSLkMTrFiRzYIkX3BhqQ5svz7z7K9mvv5Ab8KUpQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-
 </html>
