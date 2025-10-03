@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zen Fuel – $2 Drink Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -15,115 +14,118 @@
       text-align: center;
       padding: 2rem 1rem;
     }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-    }
-
     h1 {
-      font-size: 2.5rem;
       color: #f4a261;
+      font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
-
     h2 {
-      font-size: 1.5rem;
       color: #e76f51;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
     }
-
-    .cta {
-      margin-top: 1.5rem;
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
-
-    .cta input {
-      padding: 0.5rem;
+    .hero-img {
+      width: 280px;
+      margin: 1rem auto;
+    }
+    .countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2a9d8f;
+      margin: 2rem 0;
+    }
+    .mailchimp-form input[type="email"] {
+      padding: 0.7rem;
       font-size: 1rem;
       width: 250px;
+      max-width: 90%;
       border: none;
       border-radius: 5px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-
-    .cta button {
-      padding: 0.5rem 1rem;
-      background-color: #f4a261;
-      color: #000;
+    .mailchimp-form input[type="submit"] {
+      background-color: #e76f51;
+      color: white;
       border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
       border-radius: 5px;
-      font-weight: bold;
       cursor: pointer;
     }
-
-    .countdown {
-      margin: 2rem 0;
-      font-size: 1.5rem;
-      color: #fff;
+    .mailchimp-form input[type="submit"]:hover {
+      background-color: #f4a261;
     }
-
-    footer {
-      font-size: 0.8rem;
+    .images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
       margin-top: 2rem;
-      color: #aaa;
     }
-
-    @media screen and (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.2rem; }
-      .countdown { font-size: 1.2rem; }
+    @media (min-width: 768px) {
+      .images {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .hero-img {
+        width: 220px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <img src="Logo1.png" alt="Ignite Logo" width="120"/>
-
   <h1>Zen Fuel is Coming</h1>
-  <h2>$2 Drink Club – Pre-Orders Open</h2>
+  <h2>$2 Drink Club – Pre-Orders Opening Soon</h2>
+  <p>From Warrior II to HIIT – Fuel Your Mind, Body & Flow.</p>
 
-  <div class="countdown" id="countdown">⏳ Countdown: Loading...</div>
+  <div class="countdown" id="countdown">
+    Loading launch countdown...
+  </div>
 
-  <img src="BottleDesign1.png" alt="Ignite Drink Bottles" />
-
-  <div class="cta">
-    <p>Be the first to know. Join our list:</p>
-    <form action="#" method="POST">
-      <input type="email" placeholder="Enter your email" required />
-      <br />
-      <button type="submit">Notify Me</button>
+  <div class="mailchimp-form">
+    <form action="https://YOUR_MAILCHIMP_URL" method="post" target="_blank" novalidate>
+      <input type="email" name="EMAIL" placeholder="Enter your email" required>
+      <br>
+      <input type="submit" value="Notify Me First">
     </form>
   </div>
 
-  <img src="Ingredients7.png" alt="Ingredient Benefits" />
-
-  <footer>
-    &copy; 2025 Ignite. All rights reserved.
-  </footer>
+  <div class="images">
+    <img src="Logo1.png" alt="Zen Fuel Logo" class="hero-img" />
+    <img src="BottleDesign1.png" alt="Zen Fuel Bottle" class="hero-img" />
+    <img src="Ingredients7.png" alt="Zen Fuel Ingredients" class="hero-img" />
+  </div>
 
   <script>
-    // Countdown Timer to Oct 15, 2025
-    const launchDate = new Date("2025-10-15T00:00:00").getTime();
+    // Countdown Timer
+    const targetDate = new Date("2025-11-01T10:00:00"); // Set your launch date & time
+    const countdownEl = document.getElementById("countdown");
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
 
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "🎉 Zen Fuel is Here!";
+      if (diff <= 0) {
+        countdownEl.innerHTML = "Zen Fuel has Launched!";
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
 
-      document.getElementById("countdown").innerHTML =
-        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
+      countdownEl.innerHTML = `Launches in: ${days}d ${hours}h ${mins}m ${secs}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
