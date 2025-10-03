@@ -4,177 +4,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ignite Pre-Order Launch</title>
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+  <title>Ignite Pre-Order</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-4zzF+7UKGwXtRRlq9F+2hLM6piPPOuZ1Q3fZ+OY5GhSLxNbp4HeJBDlMrzSGHoD/oL2bX2kpMYIuhK9+5my1Qw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
+      margin: 0;
       background-color: #000;
       color: #fff;
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
       text-align: center;
     }
 
-    header img {
-      width: 120px;
-      margin: 20px auto;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #ffc107;
-    }
-
-    h2 {
-      color: orange;
-      font-size: 1.8em;
-    }
-
-    .countdown {
-      font-size: 1.4em;
-      border: 2px solid orange;
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-    }
-
-    .highlight-text {
-      color: orange;
-    }
-
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    .image-gallery img {
-      width: 300px;
-      height: auto;
-      border-radius: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    .image-gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .ingredients-bg {
-      opacity: 0.2;
-      position: absolute;
-      z-index: -1;
-      top: 20%;
+    .hero-section {
+      position: relative;
       width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 2px solid #ff6600;
+    }
+
+    .button-section {
+      margin: 20px 0;
     }
 
     .cta-button {
-      background-color: orange;
-      color: black;
-      padding: 15px 30px;
-      font-weight: bold;
-      font-size: 1.2em;
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
-      margin: 30px 0;
+      border-radius: 8px;
+      margin: 10px;
     }
 
-    .testimonials {
+    .countdown {
+      font-size: 22px;
+      color: #ffcc00;
+      margin: 10px 0;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .gallery a img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #ff6600;
+      transition: transform 0.2s;
+    }
+
+    .gallery a img:hover {
+      transform: scale(1.05);
+    }
+
+    .ingredient-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    .testimonial-section {
+      padding: 30px 20px;
       background-color: #111;
-      padding: 40px 20px;
+      border-top: 2px solid #ff6600;
     }
 
     .testimonial {
-      margin-bottom: 20px;
       font-style: italic;
-      font-size: 1em;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 10px auto;
+      max-width: 700px;
     }
 
-    @media (max-width: 768px) {
-      .image-gallery img {
+    @media (max-width: 600px) {
+      .gallery a img {
         width: 90%;
-      }
-
-      h1 {
-        font-size: 2em;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <img src="/IGNITE_Logo.png" alt="Ignite Logo" />
-  </header>
-
-  <main>
-    <h1>IGNITE IS COMING.</h1>
-    <h2>BE FIRST TO <span class="highlight-text">FUEL YOUR FLOW</span></h2>
-    <p>Born Natural. Made Powerful. Back to the Roots !!!</p>
-    <div class="countdown" id="countdown">Loading...</div>
-
-    <a href="/LaunchPage.png" data-lightbox="main" data-title="Ignite Launch Page">
-      <img src="/LaunchPage.png" alt="Ignite Launch Page" style="width: 90%; max-width: 800px; border-radius: 12px; margin: 20px 0;" />
-    </a>
-
-    <button class="cta-button">Pre-Order Now</button>
-
-    <div class="image-gallery">
-      <a href="/igniteZenFuelBottle.png" data-lightbox="bottles" data-title="Zen Bottle">
-        <img src="/igniteZenFuelBottle.png" alt="Zen Bottle" />
-      </a>
-      <a href="/igniteSocialBottle.png" data-lightbox="bottles" data-title="Social Bottle">
-        <img src="/igniteSocialBottle.png" alt="Social Bottle" />
-      </a>
-      <a href="/igniteZenbottle_tag.png" data-lightbox="tags" data-title="Zen Bottle Tag">
-        <img src="/igniteZenbottle_tag.png" alt="Zen Tag" />
-      </a>
-      <a href="/ignitesocialbottle_tag.png" data-lightbox="tags" data-title="Social Bottle Tag">
-        <img src="/ignitesocialbottle_tag.png" alt="Social Tag" />
-      </a>
+  <div class="hero-section">
+    <img class="hero-img" src="LaunchPage.png" alt="Ignite Launch Page">
+    <div class="countdown" id="countdown"></div>
+    <div class="button-section">
+      <a href="https://buy.stripe.com/test_preorder" class="cta-button">Pre-Order Now</a>
+      <a href="https://www.instagram.com/br2zcafe" class="cta-button">Get Product Updates</a>
     </div>
+    <img src="Ingredients7.jpeg" alt="Ingredients Background" class="ingredient-bg">
+  </div>
 
-    <img src="/Ingredients7.jpeg" class="ingredients-bg" alt="Ingredients Background" />
+  <div class="gallery">
+    <a href="igniteZenbottle_tag.png" data-lightbox="ignite"><img src="igniteZenbottle_tag.png" alt="Zen Bottle Tag"></a>
+    <a href="ignitesocialbottle_tag.png" data-lightbox="ignite"><img src="ignitesocialbottle_tag.png" alt="Social Bottle Tag"></a>
+    <a href="ignitezen FuelBottle.png" data-lightbox="ignite"><img src="ignitezen FuelBottle.png" alt="Zen Bottle"></a>
+    <a href="igniteSocialBottle.png" data-lightbox="ignite"><img src="igniteSocialBottle.png" alt="Social Bottle"></a>
+  </div>
 
-    <section class="testimonials">
-      <h2>What People Are Saying</h2>
-      <div class="testimonial">“Tastes clean, feels great. I noticed the difference in focus!” — Alex R.</div>
-      <div class="testimonial">“My mornings are sharper and my body feels aligned.” — Priya D.</div>
-      <div class="testimonial">“This is not just a drink—it’s a daily ritual now.” — Jake M.</div>
-    </section>
-  </main>
+  <div class="testimonial-section">
+    <h2>What People Are Saying</h2>
+    <p class="testimonial">“This drink gave me exactly what I needed—calm energy and mental focus.” – A. Patel</p>
+    <p class="testimonial">“Perfect for winding down or powering through a creative session.” – J. Kaur</p>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
   <script>
-    const releaseDate = new Date("2025-10-30T00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
+    const releaseDate = new Date("October 30, 2025 00:00:00").getTime();
 
-    const timer = setInterval(() => {
+    function updateCountdown() {
       const now = new Date().getTime();
-      const diff = releaseDate - now;
+      const distance = releaseDate - now;
 
-      if (diff < 0) {
-        clearInterval(timer);
-        countdownEl.innerText = "It's live!";
-        return;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Available Now!";
       }
+    }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      countdownEl.innerText = `${days} d ${hours} h • ${minutes} m ${seconds} s`;
-    }, 1000);
+    setInterval(updateCountdown, 1000);
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-q22zYwtqVV3sDrzKMEZgqVxAe1c4NwSpAkBguheARh/q/mSLkMTrFiRzYIkX3BhqQ5svz7z7K9mvv5Ab8KUpQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
