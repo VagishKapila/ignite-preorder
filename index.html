@@ -4,150 +4,128 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IGNITE Pre-Order</title>
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       background-color: #000;
       color: #fff;
       text-align: center;
     }
-
-    header {
-      padding: 2rem 1rem 1rem;
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
     }
-
     .logo {
-      width: 100px;
-      margin: 0 auto;
+      max-width: 120px;
     }
-
     h1 {
       font-size: 2rem;
-      margin: 1rem 0 0.5rem;
-      color: #f90;
+      color: #f7931e;
+      margin-bottom: 0;
     }
-
     h2 {
+      margin-top: 10px;
       font-size: 1.3rem;
-      color: #fff;
-      margin-bottom: 1rem;
+      color: #ccc;
     }
-
-    .timer {
+    .countdown {
       font-size: 1.5rem;
-      border: 2px solid #f90;
-      padding: 0.5rem 1.2rem;
+      color: #f7931e;
+      border: 2px solid #f7931e;
       display: inline-block;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin: 20px 0;
     }
-
-    .cta-buttons {
-      margin: 1rem 0;
-    }
-
-    .cta-buttons a {
-      text-decoration: none;
-      padding: 0.8rem 1.2rem;
-      margin: 0 0.5rem;
-      background-color: #f90;
-      color: #000;
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      background-color: #f7931e;
+      color: black;
+      border: none;
       border-radius: 6px;
+      text-decoration: none;
       font-weight: bold;
     }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
-      padding: 2rem 1rem;
+      gap: 20px;
+      margin: 30px 0;
     }
-
-    .gallery a img {
-      width: 280px;
-      border-radius: 10px;
-      transition: transform 0.2s;
+    .gallery img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
     }
-
-    .gallery a img:hover {
-      transform: scale(1.05);
-    }
-
     .testimonials {
       background-color: #111;
-      padding: 2rem 1rem;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
     }
-
     .testimonial {
-      margin-bottom: 1.5rem;
       font-style: italic;
+      font-size: 0.95rem;
+      margin: 10px auto;
+      max-width: 600px;
     }
-
-    footer {
-      padding: 1rem;
-      background-color: #111;
-      font-size: 0.9rem;
-    }
-
     @media (max-width: 600px) {
-      .gallery a img {
-        width: 90%;
-      }
+      h1 { font-size: 1.5rem; }
+      .countdown { font-size: 1.2rem; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <img src="IGNITE_Logo.png" class="logo" alt="Ignite Logo" />
+  <div class="container">
+    <img src="IGNITE_Logo.png" alt="IGNITE Logo" class="logo">
     <h1>IGNITE IS COMING.</h1>
-    <h2>Be First to Fuel Your Flow.</h2>
-    <div class="timer" id="countdown"></div>
-    <div class="cta-buttons">
-      <a href="https://buy.stripe.com/test_preorder_link" target="_blank">Pre-Order Now</a>
-      <a href="https://www.instagram.com/br2zcafe" target="_blank">Get Product Updates</a>
+    <h2>Born Natural. Made Powerful. Back to the Roots.</h2>
+
+    <div class="countdown" id="countdown"></div>
+
+    <a href="#" class="button">Pre-Order Now</a>
+    <a href="https://www.instagram.com/br2zcafe" class="button" target="_blank">Get Product Updates</a>
+
+    <div class="gallery">
+      <a href="igniteZenbottle_tag.png" data-lightbox="ignite"><img src="igniteZenbottle_tag.png" alt="Zen Bottle Tag"></a>
+      <a href="ignitesocialbottle_tag.png" data-lightbox="ignite"><img src="ignitesocialbottle_tag.png" alt="Social Bottle Tag"></a>
+      <a href="igniteZenbottle.png" data-lightbox="ignite"><img src="igniteZenbottle.png" alt="Zen Bottle"></a>
+      <a href="igniteSocialBottle.png" data-lightbox="ignite"><img src="igniteSocialBottle.png" alt="Social Bottle"></a>
+      <a href="Ingredients7.jpeg" data-lightbox="ignite"><img src="Ingredients7.jpeg" alt="Ingredients"></a>
     </div>
-  </header>
 
-  <section class="gallery">
-    <a href="LaunchPage.png" data-lightbox="ignite"><img src="LaunchPage.png" alt="Launch Preview" /></a>
-    <a href="ignitezenbottle_tag.png" data-lightbox="ignite"><img src="ignitezenbottle_tag.png" alt="Zen Bottle" /></a>
-    <a href="ignitesocialbottle_tag.png" data-lightbox="ignite"><img src="ignitesocialbottle_tag.png" alt="Social Bottle" /></a>
-    <a href="Ingredients7.jpeg" data-lightbox="ignite"><img src="Ingredients7.jpeg" alt="Ingredients" /></a>
-  </section>
-
-  <section class="testimonials">
-    <h2>What People Are Saying</h2>
-    <div class="testimonial">"This is exactly what I needed to feel energized during my workday!" – Jess</div>
-    <div class="testimonial">"Zen Fuel actually helped me focus better than any coffee ever has." – Arun</div>
-    <!-- Add more testimonials here -->
-  </section>
-
-  <footer>
-    &copy; 2025 IGNITE – Powered by bR2z. All rights reserved.
-  </footer>
+    <div class="testimonials">
+      <h2>What People Are Saying</h2>
+      <div class="testimonial">“Finally, a clean energy drink that actually works.” – Jess P.</div>
+      <div class="testimonial">“Love the ingredients and vibe. Perfect for my workflow.” – Aaron K.</div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
   <script>
-    const releaseDate = new Date("2025-10-30T00:00:00Z").getTime();
-    const countdown = document.getElementById("countdown");
+    // Countdown timer to October 30
+    const countdown = document.getElementById('countdown');
+    const targetDate = new Date('October 30, 2025 00:00:00').getTime();
 
-    function updateTimer() {
+    setInterval(() => {
       const now = new Date().getTime();
-      const distance = releaseDate - now;
+      const distance = targetDate - now;
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateTimer, 1000);
+      countdown.innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
   </script>
 </body>
 </html>
