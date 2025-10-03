@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ignite Preorder</title>
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
   <style>
     body {
       background-color: #000;
@@ -48,6 +47,8 @@
       border-radius: 5px;
       cursor: pointer;
       margin: 10px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .image-grid {
@@ -57,14 +58,47 @@
       padding: 20px;
     }
 
-    .image-grid a img {
+    .image-grid img {
       width: 100%;
       border-radius: 10px;
       transition: transform 0.3s;
+      cursor: pointer;
     }
 
-    .image-grid a img:hover {
+    .image-grid img:hover {
       transform: scale(1.05);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      color: #fff;
+      background: #ff6a00;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
     }
 
     @media screen and (max-width: 600px) {
@@ -80,58 +114,65 @@
   </style>
 </head>
 <body>
-  <img class="logo" src="IGNITE_Logo.png" alt="Ignite Logo">
-  <h1>IGNITE IS COMING.<br>BE FIRST TO FUEL YOUR FLOW.</h1>
+  <img class="logo" src="IGNITE_Logo.png" alt="Ignite Logo" />
+  <h1>IGNITE IS COMING.<br />BE FIRST TO FUEL YOUR FLOW.</h1>
   <h2>Born Natural. Made Powerful. Back to the Roots !!!</h2>
-  <div class="timer" id="countdown">Loading...</div><br>
+
+  <div class="timer" id="countdown">Loading...</div><br />
+
   <a href="https://buy.stripe.com/test_xyz" class="cta-button">PRE ORDER NOW</a>
   <a href="https://instagram.com/br2zcafe" target="_blank" class="cta-button">GET PRODUCT UPDATES</a>
 
   <div class="image-grid">
-    <a href="ignitezen FuelBottle.png" data-lightbox="ignite" data-title="Zen Fuel Bottle">
-      <img src="ignitezen FuelBottle.png" alt="Zen Fuel Bottle" />
-    </a>
-    <a href="igniteZenbottle_tag.png" data-lightbox="ignite" data-title="Zen Fuel Ingredients">
-      <img src="igniteZenbottle_tag.png" alt="Zen Tag" />
-    </a>
-    <a href="igniteSocialBottle.png" data-lightbox="ignite" data-title="Social Fuel Bottle">
-      <img src="igniteSocialBottle.png" alt="Social Bottle" />
-    </a>
-    <a href="ignitesocialbottle_tag.png" data-lightbox="ignite" data-title="Social Ingredients">
-      <img src="ignitesocialbottle_tag.png" alt="Social Tag" />
-    </a>
-    <a href="Ingredients7.png" data-lightbox="ignite" data-title="Ingredient Highlights">
-      <img src="Ingredients7.png" alt="Ingredients" />
-    </a>
+    <img src="ignitezen FuelBottle.png" alt="Zen Fuel Bottle" onclick="openModal(this.src)">
+    <img src="igniteZenbottle_tag.png" alt="Zen Fuel Tag" onclick="openModal(this.src)">
+    <img src="igniteSocialBottle.png" alt="Social Fuel Bottle" onclick="openModal(this.src)">
+    <img src="ignitesocialbottle_tag.png" alt="Social Tag" onclick="openModal(this.src)">
+    <img src="Ingredients7.png" alt="Ingredients" onclick="openModal(this.src)">
+  </div>
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal">
+    <img class="modal-content" id="modalImg" />
+    <button class="close-btn" onclick="closeModal()">Back</button>
   </div>
 
   <script>
-    function startCountdown(endDate) {
-      const countdown = document.getElementById("countdown");
-      const updateTimer = () => {
-        const now = new Date().getTime();
-        const distance = endDate - now;
+    // Countdown Timer
+    const launchDate = new Date("2025-10-30T00:00:00Z").getTime();
+    const countdownEl = document.getElementById("countdown");
 
-        if (distance < 0) {
-          countdown.innerHTML = "Launched!";
-          return;
-        }
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (distance < 0) {
+        countdownEl.innerHTML = "Launched!";
+        return;
+      }
 
-        countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      };
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      updateTimer();
-      setInterval(updateTimer, 1000);
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    const launchDate = new Date("2025-10-30T00:00:00Z").getTime();
-    startCountdown(launchDate);
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Modal Viewer
+    function openModal(src) {
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      modalImg.src = src;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 </body>
 </html>
