@@ -5,60 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Zen Fuel – $2 Drink Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       background-color: #000;
       color: #fff;
       font-family: 'Montserrat', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      min-height: 100vh;
       text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
     }
 
     h1 {
-      color: #f4a261;
       font-size: 2.5rem;
+      color: #f4a261;
       margin-bottom: 0.5rem;
     }
 
     h2 {
-      color: #2a9d8f;
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      color: #e76f51;
     }
 
-    p {
-      font-size: 1.1rem;
-      color: #ccc;
-      max-width: 500px;
-      margin-bottom: 2rem;
+    .cta {
+      margin-top: 1.5rem;
     }
 
-    button {
-      padding: 0.8rem 1.5rem;
-      background-color: #e76f51;
-      border: none;
-      border-radius: 6px;
-      color: white;
+    .cta input {
+      padding: 0.5rem;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
     }
 
-    button:hover {
-      background-color: #d65f41;
+    .cta button {
+      padding: 0.5rem 1rem;
+      background-color: #f4a261;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .countdown {
+      margin: 2rem 0;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      margin-top: 2rem;
+      color: #aaa;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.2rem; }
+      .countdown { font-size: 1.2rem; }
     }
   </style>
 </head>
+
 <body>
+
+  <img src="Logo1.png" alt="Ignite Logo" width="120"/>
+
   <h1>Zen Fuel is Coming</h1>
   <h2>$2 Drink Club – Pre-Orders Open</h2>
-  <p>Born Natural. Made Powerful. Back to the Roots!!!</p>
-  <button onclick="alert('Pre-orders launching soon!')">Notify Me</button>
+
+  <div class="countdown" id="countdown">⏳ Countdown: Loading...</div>
+
+  <img src="BottleDesign1.png" alt="Ignite Drink Bottles" />
+
+  <div class="cta">
+    <p>Be the first to know. Join our list:</p>
+    <form action="#" method="POST">
+      <input type="email" placeholder="Enter your email" required />
+      <br />
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+
+  <img src="Ingredients7.png" alt="Ingredient Benefits" />
+
+  <footer>
+    &copy; 2025 Ignite. All rights reserved.
+  </footer>
+
+  <script>
+    // Countdown Timer to Oct 15, 2025
+    const launchDate = new Date("2025-10-15T00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "🎉 Zen Fuel is Here!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
 </body>
 </html>
