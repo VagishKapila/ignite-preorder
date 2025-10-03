@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zen Fuel – $2 Drink Club</title>
+  <title>Ignite is Coming – Fuel Your Flow</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,41 +14,63 @@
       text-align: center;
       padding: 2rem 1rem;
     }
+
     h1 {
-      color: #f4a261;
+      color: #fef3c7;
       font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
     }
+
     h2 {
-      color: #e76f51;
-      font-size: 1.8rem;
+      color: #fb923c;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p.tagline {
+      color: #f97316;
+      font-size: 1rem;
       margin-bottom: 2rem;
+      letter-spacing: 0.8px;
     }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    .hero-img {
-      width: 280px;
-      margin: 1rem auto;
-    }
+
     .countdown {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #2a9d8f;
-      margin: 2rem 0;
+      color: #fde68a;
+      margin-bottom: 0.5rem;
     }
+
+    .price-boxes {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 1.2rem auto;
+    }
+
+    .price-box {
+      background-color: #1f2937;
+      color: #fef3c7;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
     .mailchimp-form input[type="email"] {
       padding: 0.7rem;
       font-size: 1rem;
       width: 250px;
-      max-width: 90%;
       border: none;
       border-radius: 5px;
       margin-bottom: 1rem;
     }
+
     .mailchimp-form input[type="submit"] {
-      background-color: #e76f51;
+      background-color: #fb923c;
       color: white;
       border: none;
       padding: 0.7rem 1.2rem;
@@ -56,55 +78,117 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     .mailchimp-form input[type="submit"]:hover {
-      background-color: #f4a261;
+      background-color: #f59e0b;
     }
-    .images {
+
+    .bottles {
+      margin: 2rem 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .bottles img {
+      width: 120px;
+    }
+
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 2rem auto 2.5rem;
+    }
+
+    .benefit {
+      background-color: #111827;
+      color: #facc15;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+    }
+
+    .testimonials {
+      font-size: 0.9rem;
+      color: #fef9c3;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
       margin-top: 2rem;
     }
+
+    .zen-ingredients {
+      margin-top: 2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     @media (min-width: 768px) {
-      .images {
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      .price-boxes {
         flex-direction: row;
         justify-content: center;
       }
-      .hero-img {
-        width: 220px;
+
+      .bottles img {
+        width: 150px;
       }
     }
   </style>
 </head>
 
 <body>
+  <h1>Ignite is Coming</h1>
+  <h2>Be First to Fuel Your Flow.</h2>
+  <p class="tagline">Born Natural. Made Powerful. Back to the Roots!!!</p>
 
-  <h1>Zen Fuel is Coming</h1>
-  <h2>$2 Drink Club – Pre-Orders Opening Soon</h2>
-  <p>From Warrior II to HIIT – Fuel Your Mind, Body & Flow.</p>
+  <div class="countdown" id="countdown">Loading launch countdown...</div>
 
-  <div class="countdown" id="countdown">
-    Loading launch countdown...
+  <div class="price-boxes">
+    <div class="price-box">$20/mo Founder’s Subscription</div>
+    <div class="price-box">$7 One-Time Founder’s Spot</div>
   </div>
 
   <div class="mailchimp-form">
     <form action="https://YOUR_MAILCHIMP_URL" method="post" target="_blank" novalidate>
-      <input type="email" name="EMAIL" placeholder="Enter your email" required>
-      <br>
+      <input type="email" name="EMAIL" placeholder="Enter your email" required><br>
       <input type="submit" value="Notify Me First">
     </form>
   </div>
 
-  <div class="images">
-    <img src="Logo1.png" alt="Zen Fuel Logo" class="hero-img" />
-    <img src="BottleDesign1.png" alt="Zen Fuel Bottle" class="hero-img" />
-    <img src="Ingredients7.png" alt="Zen Fuel Ingredients" class="hero-img" />
+  <div class="bottles">
+    <img src="Logo1.png" alt="Zen Fuel Logo">
+    <img src="BottleDesign1.png" alt="Zen Fuel Bottle">
+    <img src="Ingredients7.png" alt="Ingredients Lineup">
+  </div>
+
+  <div class="benefits">
+    <div class="benefit">Clean caffeine • No crash</div>
+    <div class="benefit">Electrolytes • Hydration</div>
+    <div class="benefit">Adaptogens • Ashwagandha</div>
+    <div class="benefit">No junk</div>
+  </div>
+
+  <div class="zen-ingredients">
+    <img src="A_hanging_informational_tag_displays_the_title_&quot;ZE.png" alt="Zen Fuel Ingredients" style="width: 100%;">
+  </div>
+
+  <div class="testimonials">
+    Jess in Austin, TX just pre-ordered • Raj in New York, NY just pre-ordered
   </div>
 
   <script>
-    // Countdown Timer
-    const targetDate = new Date("2025-11-01T10:00:00"); // Set your launch date & time
+    const targetDate = new Date("2025-11-01T10:00:00");
     const countdownEl = document.getElementById("countdown");
 
     function updateCountdown() {
@@ -127,6 +211,5 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
-
 </body>
 </html>
