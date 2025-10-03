@@ -2,129 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ignite – Pre-Order Launch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGNITE – Fuel Your Flow</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 0;
       background-color: #000;
       color: #fff;
       font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .main {
+      max-width: 1152px;
+      width: 100%;
+      padding: 2rem;
+      box-sizing: border-box;
       text-align: center;
     }
 
-    .container {
-      padding: 2rem;
+    .main img.full {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
     }
 
-    .hero-logo {
-      max-width: 200px;
-      margin: 0 auto 1rem;
-    }
-
-    .hero-heading {
-      font-size: 2.2rem;
-      margin: 0.5rem 0;
-      color: #ff6600;
-    }
-
-    .sub-heading {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-    }
-
-    .countdown {
-      font-size: 2rem;
-      margin: 2rem 0;
-      color: #ffcc00;
-    }
-
-    .bottle {
-      max-width: 300px;
-      margin: 2rem auto;
-      display: block;
-    }
-
-    .tag {
-      max-width: 300px;
-      margin: 1rem auto;
-      display: block;
+    .cta {
+      margin-top: 1.5rem;
     }
 
     .btn {
-      display: inline-block;
       background-color: #ff6600;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      margin: 1rem 0.5rem;
-      font-size: 1rem;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       text-decoration: none;
-      border-radius: 5px;
       transition: background 0.3s ease;
     }
 
     .btn:hover {
       background-color: #e65500;
     }
-
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
   </style>
 </head>
 <body>
+  <div class="main">
+    <!-- Final Preview Image -->
+    <img src="LaunchPage.png" alt="Ignite Product Preview" class="full" />
 
-  <div class="container">
-    <img src="IGNITE_Logo.png" alt="Ignite Logo" class="hero-logo" />
-    <h1 class="hero-heading">IGNITE IS COMING</h1>
-    <p class="sub-heading">Be First to Fuel Your Flow</p>
-    <p class="sub-heading">Born Natural. Made Powerful. Back to the Roots.</p>
-
-    <!-- Countdown Timer -->
-    <div id="countdown" class="countdown">Launching in: 00d 00h 00m 00s</div>
-
-    <!-- Product Preview -->
-    <img src="igniteSocialBottle.png" alt="Ignite Social Bottle" class="bottle" />
-    <img src="ignitesocialbottle_tag.png" alt="Ignite Social Tag" class="tag" />
-
-    <img src="ignitezen FuelBottle.png" alt="Ignite Zen Bottle" class="bottle" />
-    <img src="igniteZenbottle_tag.png" alt="Ignite Zen Tag" class="tag" />
-
-    <!-- CTA Buttons -->
-    <a href="https://buy.stripe.com/test-order-link" class="btn">Pre Order Now</a>
-    <a href="https://instagram.com/br2zcafe" target="_blank" class="btn">Get Product Updates</a>
-
-    <!-- Footer -->
-    <div class="footer">
-      $20/month subscription or one-time Founder Spot. Ships Soon!
+    <!-- CTA Button -->
+    <div class="cta">
+      <a class="btn" href="https://buy.stripe.com/test-order-link">Pre Order Now</a>
     </div>
   </div>
-
-  <script>
-    // Countdown Timer
-    const launchDate = new Date("2025-10-15T10:00:00").getTime(); // adjust as needed
-    const countdown = document.getElementById("countdown");
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-      if (distance < 0) {
-        countdown.innerHTML = "🚀 Now Available!";
-      }
-    }, 1000);
-  </script>
-
 </body>
 </html>
