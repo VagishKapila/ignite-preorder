@@ -3,66 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IGNITE – Fuel Your Flow</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Ignite is Coming</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
   <style>
     body {
       margin: 0;
-      padding: 0;
       background-color: #000;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #fff;
-      font-family: 'Montserrat', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
     }
-
-    .main {
-      max-width: 1152px;
-      width: 100%;
-      padding: 2rem;
-      box-sizing: border-box;
+    .container {
+      max-width: 1000px;
+      width: 95%;
+      padding: 20px;
       text-align: center;
     }
-
-    .main img.full {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
+    .logo {
+      width: 100px;
+      margin: 20px auto;
     }
-
-    .cta {
-      margin-top: 1.5rem;
+    .headline {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
     }
-
-    .btn {
+    .subheadline {
+      font-size: 1.25rem;
+      color: #ff6600;
+      margin: 10px 0 20px;
+    }
+    .countdown {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      padding: 10px 20px;
+      border: 2px solid #ff6600;
+      display: inline-block;
+      border-radius: 10px;
+    }
+    .button-row {
+      margin: 20px 0;
+    }
+    .cta-button {
       background-color: #ff6600;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+      color: #000;
       border: none;
-      border-radius: 6px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 10px;
       cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
+      border-radius: 5px;
     }
-
-    .btn:hover {
-      background-color: #e65500;
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .grid img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: zoom-in;
+    }
+    footer {
+      margin: 30px 0;
+    }
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 1.5rem;
+      }
+      .subheadline {
+        font-size: 1rem;
+      }
+      .cta-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="main">
-    <!-- Final Preview Image -->
-    <img src="LaunchPage.png" alt="Ignite Product Preview" class="full" />
+  <div class="container">
+    <img src="IGNITE_Logo.png" alt="Ignite Logo" class="logo" />
+    <div class="headline">IGNITE IS COMING.<br><span style="color: #ff6600">BE FIRST TO FUEL YOUR FLOW.</span></div>
+    <div class="subheadline">Born Natural. Made Powerful. Back to the Roots !!!</div>
 
-    <!-- CTA Button -->
-    <div class="cta">
-      <a class="btn" href="https://buy.stripe.com/test-order-link">Pre Order Now</a>
+    <div class="countdown" id="countdown"></div>
+
+    <div class="button-row">
+      <a href="https://buy.stripe.com/test_xyz" class="cta-button">PRE ORDER NOW</a>
+      <a href="https://instagram.com/br2zcafe" class="cta-button">GET PRODUCT UPDATES</a>
+    </div>
+
+    <div class="grid">
+      <a href="ignitezen FuelBottle.png" data-lightbox="ignite" data-title="Zen Focused Clarity Bottle">
+        <img src="ignitezen FuelBottle.png" alt="Zen Fuel Bottle" />
+      </a>
+      <a href="igniteZenbottle_tag.png" data-lightbox="ignite" data-title="Zen Ingredients">
+        <img src="igniteZenbottle_tag.png" alt="Zen Tag" />
+      </a>
+      <a href="igniteSocialBottle.png" data-lightbox="ignite" data-title="Social Mood Bottle">
+        <img src="igniteSocialBottle.png" alt="Social Bottle" />
+      </a>
+      <a href="ignitesocialbottle_tag.png" data-lightbox="ignite" data-title="Social Ingredients">
+        <img src="ignitesocialbottle_tag.png" alt="Social Tag" />
+      </a>
+      <a href="Ingredients7.jpeg" data-lightbox="ignite" data-title="Ingredients Breakdown">
+        <img src="Ingredients7.jpeg" alt="Ingredients Overview" />
+      </a>
     </div>
   </div>
+
+  <footer>
+    <small>&copy; 2025 Ignite. Powered by bR2z.</small>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+  <script>
+    const launchDate = new Date("2025-11-15T00:00:00Z").getTime();
+    const countdown = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const timeLeft = launchDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
 </body>
 </html>
